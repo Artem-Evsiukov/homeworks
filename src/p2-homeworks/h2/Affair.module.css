@@ -1,0 +1,23 @@
+.wrap {
+    display: flex;
+    max-width: 400px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+
+}
+
+.flex {
+    width: 100%;
+}
+
+.button {
+    margin-left: 20px;
+
+}
+
+.priority {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
