@@ -16,17 +16,14 @@ function Message(props: messageDataType) {
                     <img src={props.avatar} alt=""/>
                 </div>
 
-               <div className={styles.col}>
-                   <div className={styles.name}>{props.name}</div>
-                  <div className={styles.rowWrap}>
-                      <div className={styles.message}>{props.message}</div>
-                      <div className={styles.time}>{props.time}</div>
-                  </div>
-               </div>
+                <div className={styles.col}>
+                    <div className={styles.name}>{props.name}</div>
+                    <div className={styles.message}>{props.message}</div>
+                    <div className={styles.time}>{props.time}</div>
+                </div>
             </div>
             <div className={styles.row}>
                 <textarea className={styles.textarea}></textarea>
-
                 <button>send</button>
             </div>
         </div>
