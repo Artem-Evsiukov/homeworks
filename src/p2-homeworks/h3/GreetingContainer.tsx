@@ -14,34 +14,32 @@ type GreetingContainerPropsType = {
 // уровень локальной логики
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => { // деструктуризация пропсов
     const [name, setName] = useState<string>('') // need to fix any
-    let [totalUsers, setTotal] = useState(0)
-    const [error, setError] = useState<string | null>(null) // need to fix any
-
+    const [error, setError] = useState<string>('') // need to fix any
 
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => { // need to fix any
-        setName(e.currentTarget.value)
-    }
-    const onKeyPreessHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        setError(null)
-        if (e.charCode === 13) {
-            addUserCallback(name.trim())
-            setName('')
-            setTotal(++totalUsers)
-            alert(`Hello ${name} !`)
-        }
-    }
+        const trimedName = e.currentTarget.value.trim()
 
-    const addUser = () => {
-        if (name.trim() !== '') {
-            addUserCallback(name.trim())
-            setName('')
-            alert(`Hello ${name} !`) // need to fix
-            setTotal(++totalUsers)
+        if (trimedName) {
+            setName(trimedName)
+            error && setError('')
         } else {
-            setError('Title is required')
+            name && setName('')
+            setError('Name is required')
+        }
+    }
+    const addUser = () => {
+        addUserCallback(name)
+        alert(`Hello ${name} !`) // need to fix
+        setName('')
+    }
+
+    const onKeyPreessHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter' && name) {
+            addUser()
         }
     }
 
+    const totalUsers = users.length
 
     return (
         <Greeting

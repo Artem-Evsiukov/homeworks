@@ -2,8 +2,19 @@
 
 }
 
-.error {
+.errorInput {
     border: 1px solid red;
+}
+.input{
+    border: 1px solid green;
+}
+input{
+    padding: 10px;
+    margin-right: 20px;
+}
+input:focus{
+    outline: none;
+    border: 1px solid green;
 }
 .errorMessage{
     color: red;
