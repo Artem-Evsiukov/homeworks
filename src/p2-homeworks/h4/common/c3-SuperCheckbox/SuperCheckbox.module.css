@@ -1,7 +1,64 @@
-.checkbox {
+.label .checkbox {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.label{
+    width: 120px;
+    height: 30px;
+}
+.label .spanClassName{
+    display: block;
+    font-size: 18px;
+    line-height: 150%;
+    color: black;
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.label .spanClassName:before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: 2px solid darkkhaki;
+    transition: all .3s ease;
+    box-sizing: border-box;
+    transform: translateY(-50%);
+}
+
+.label .spanClassName:after{
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    transition: all .3s ease;
+    border-radius: 50%;
+    opacity: 0;
+    background-color: yellow;
+}
+.spanClassName {
 
 }
 
-.spanClassName {
 
+.label .checkbox[type='checkbox']:checked  + .spanClassName::before {
+    border: 2px solid darkkhaki;
+    background-color: darkkhaki;
+}
+.label  .checkbox[type='checkbox']:checked + .spanClassName::after{
+    opacity: 1;
 }
